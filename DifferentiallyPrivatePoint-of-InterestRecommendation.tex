@@ -260,7 +260,7 @@ The main contribution of this work is to design and analyze a realistic recommen
 \par \textbf{Friend Relationship Privacy-Preserving Algorithm(FRP)}. We introduce the attacking methods of that attackers can derive the user¡¯s privacy information by using the friend relationship in recommender system. And study the existing privacy-preserving algorithms for this kind of attacking model and point out their drawbacks. At last we propose a more lightweight and effective controllable algorithm which is shown in Fig.\,\ref{fig:general}.
 \par As an additional contribution of this note, we hope to demonstrate the integration of differential privacy technology to practical systems so we adopt a new evaluation method. We evaluate the effectiveness of our algorithms theoretically with Shannon information entropy. And conduct enough experiments to prove that our two privacy-preserving algorithms are useful and effective. Finally we give an important formula and quantification standards which allow users to control their privacy-preserving levels by choosing suitable private parameters.
 \subsection{Outline}
-The rest of the paper is organized as follows. Section \ref{sec:RelatedWork} gives some related works and Section \ref{sec:Background} reviews the POI recommendation system, differential privacy and the private attacking models. Section \ref{sec:Location PPA} shows the fuzzy geographic location algorithm. Fuzzy friend relationship privacy-preserving algorithm is proposed in Section \ref{sec:FRPPA}, followed by theoretical analysis of POI privacy recommendation algorithm in Section \ref{sec:analysis} and extensive experimental results in Section \ref{sec:experiment} to demonstrate the effectiveness of the proposed methods. Section \ref{sec:Conclusion} concludes the work and give some advises on the future work.
+The rest of the paper is organized as follows. Section \ref{sec:RelatedWork} gives some related works and Section \ref{sec:Background} reviews the POI recommendation system, differential privacy and the private attacking models. Section \ref{sec:PPA} shows our two fuzzy privacy-preserving algorithms followed by theoretical analysis of them into private POI recommendation. Extensive experiments are conducted in Section \ref{sec:experiment} to demonstrate the effectiveness of the proposed methods. Section \ref{sec:Conclusion} concludes the work and give some advice on the future work.
 
 
 
@@ -276,12 +276,18 @@ In 1977, Dalenius \cite{DT1977} first proposed private data protection and intro
 \par Although the definition of privacy was still too vague and he did not provide any accurate or quantifiable indicators, he provided a general direction for the later study. This becomes one of the foundation theory of the private database protection.
 \par Sweeney \cite{LS2002} proposed the $k$-anonymity method in 2002 to solve the problem that even if the explicit identifier of each entry is deleted, attackers can still infer the entry's privacy information by multiple attribute values of the entry with high probability. It can uniquely identify anyone of the U.S. population with a probability of nearly $90\%$ using {\em Quasi-Identifier} (QID), such as postal code, birth date, gender, etc.
 The $k$-anonymity is defined as: If there is more than one QID for a record in the database, there should be at least $k-1$ other records with the same value under the same QID attribute. That is, the minimum number of records with the same value under a certain QID is at least $k$, then the database satisfies $k$-anonymity. In a $k$-anonymity database, for a given QID, there are at least $k$ records with the same value, so the probability of deducing a target record by QID is at most $1/k$. However, the assumption of $k$-anonymity is that each record in the database corresponds uniquely to an entity. If this assumption is invalid, for example, a patient may have multiple records in $m$ visits, and most QIDs of them have the same value, the leak probability of the $k$-anonymous privacy is increased to $m/k$.  Wong et al.~\cite{RC2006} proposed the $(X, Y)$-anonymous method in 2006, where $X$ and $Y$ are joint attributes of records. However, both $k$-anonymity and subsequent extension methods have a weakness of `joint attribute attacks' which is that with high probability the attacker can infer the recorded private information if he cross-matches the data in other public databases or his other background knowledge with the records in a database that satisfies the $k$-anonymity. Machanavajjhala \cite{MJV2006} proposed a diversity principle, also known as $l$-diversity, to prevent this type of attack in 2006. $l$-diversity requires that each group of QIDs contains at least $l$ different values in a privacy attribute. $l$-diversity is definitely satisfied with  $k$-anonymity if $k\leq l$ because at least $l$ records are included in each QID group. However, if the distribution of sensitive data and global data in some QID groups differ greatly, the attacker may still infer the private information of the target record with high probability. To response this attack mode, Li et al.~\cite{LI2007} proposed the $t$-closeness method which considers the distance between the privacy data and the overall data for each QID group in 2007.
+\par Moreover, Lu et al.~\cite{HLU2008} proposed a general preserving method called $\langle k, s\rangle$-privacy which is basing on the generator of virtual nodes to blurred geographical location in 2008. $\langle k, s\rangle$-privacy is to blur the target position into $k$ private locations and their area are no smaller than $s$. Specifically, they proposed two dummy methods called CirDummy and GridDummy to realize $\langle k, s\rangle$-privacy, where CirDummy is dedicated to generating $k-1$ additional nodes in a virtual circle which contains the user's real position with a random center and an area of $k\cdot s$ and GridDummy is meant to produce a big virtual square which consists of $k$ small squares with an area of $s$ and make the user's real position be a point of any small square. However, this algorithm has many deficiencies.
+Firstly, $\langle k, s\rangle$-privacy algorithm needs receive two parameters $k$ and $s$ and fixed $k$ and $s$ can not be adapted to all regions, i.e., it is not taken into account that population densities vary widely from place to place.
+Secondly, in the design of  $\langle k, s\rangle$-privacy, there is no quantification of the actual degree of privacy preservation, so that the user can not understand how much private it is if he took different privacy parameters.
+Last but not least, the privacy parameters may be too large for many of the service providers, so it has basically lost the value of the data because these large data can not be effectively used.
+We improve the $\langle k, s\rangle$-privacy algorithm and propose our $\langle r, h\rangle$-privacy to avoid these deficiencies as much as possible.
+
 %We say the database satisfies $(X, Y)$-anonymity, if a database satisfies the following conditions:
 %Let $x$ be the value of attribute $X$ and the anonymization value $a_{Y}(x)$ be the quantity of different value of attribute $Y$ when $X=x$. Let the anonymization value $A_{Y}(x)$ of attribute $X$ based on the attribute $Y$ be $A_{Y}(X)=min\{a_{Y}(x)|x\in X\}$. We say the database satisfies $(X, Y)$-anonymity if $A_{Y}(x)>k$.
 
 
 
-Nevertheless, no matter $k$-anonymity, $l$-diversity, or $t$-closeness, they all have corresponding attacking modes that invalidate their privacy algorithms. The primary reason is that there is no rigorous mathematical definition of the attack model and no quantitative indicators of the background knowledge of the attacker. Dwork \cite{CDwork2006} first put forward the differential privacy method in 2006. Over the last decades, several surveys on differential privacy have been completed:
+On the other hand, no matter $k$-anonymity, $l$-diversity, $t$-closeness, they all have corresponding attacking modes that invalidate their privacy algorithms. The primary reason is that there is no rigorous mathematical definition of the attack model and no quantitative indicators of the background knowledge of the attacker. Dwork \cite{CDwork2006} first put forward the differential privacy method in 2006. Over the last decades, several surveys on differential privacy have been completed:
 \begin{itemize}
 \item[-] The first survey summarized by Dwork et al.~\cite{CDwork2008} repeated the definition of differential privacy and one of its implementation mechanisms aiming at exhibiting how to apply these techniques to data publishing;
 \item[-] Dwork et al.~\cite{CDwork2010} used the difficulties encountered in the data publishing process to reflect forward-looking solutions in statistical analysis. It identified several research issues in the analysis of data that had not yet been fully investigated at that time;
@@ -292,8 +298,7 @@ Nevertheless, no matter $k$-anonymity, $l$-diversity, or $t$-closeness, they all
 \item[-] Dwork et al.~\cite{Dwork2016} introduced concentrated differential privacy which is a relaxation of differential privacy enjoying better accuracy.
 \end{itemize}
 
-{\color{red} We focus on differential privacy with its Laplacian mechanism because we have to calculate the social relationship factor which is a numeric value between users in the recommender system. We first add Laplacian noise to the social relationship factor but not the final recommender result to smooth the weights between friend users to avoid social relationship attacks. Through this design we realize our original idea enjoying differentially private guarantees in public recommender servers.}
-
+We focus on differential privacy with its Laplacian mechanism because we have to calculate the social relationship factor which is a numeric value between users in the recommender system. We first add Laplacian noise to the social relationship factor but not the final recommender result to smooth the weights between friend users to avoid social relationship attacks. Through this design we realize our original idea enjoying differentially private guarantees in public recommender servers.
 
 
 %\begin{enumerate}
@@ -346,10 +351,10 @@ where $d(l_m,l_n )$ represents the distance between POI $l_m$ and $l_n$.  $Pr[d(
 Pr[l_j|L_i]=\frac{Pr[l_j\cup L_i]}{Pr[L_i]}
 =\frac{Pr[L_i]\times \prod_{l_y\in L_i} Pr[d(l_j,l_y)]}{Pr[L_i]}=\prod_{l_y\in L_i}Pr[d(l_j,l_y)
 \end{equation}
-Hence, we can calculate the probability $Pr[l_j\big\vert L_i ] \,(l_i\in L-L_i)$ of the POI that the user has not signed in and sort it in descending order, and then recommend top-K POIs to the user.
+Hence, we can calculate the probability $Pr[l_j\big\vert L_i ] \,(l_i\in L-L_i)$ of the POI that the user does not check in yet and sort it in descending order, and then recommend top-$K$ POIs to the user.
 
-\subsubsection{Overall POI weights}
-As discussed, we can integrate the user similarity factor, the friend relationship factor and the geo-location factor into a linear function, and calculate the probability that the user will check in a POI. Let $S_{i,j}$ be the probability that user $u_i$ will check in the POI $l_j$ and then let $S_{i,j}^u, S_{i,j}^s, S_{i,j}^g$ represent the user similarity, the friend relationship factor, location factor respectively, where $S_{i,j}$  is defined as
+\subsubsection{Overall POI factors}
+As discussed, we can integrate the user similarity factor, the friend relationship factor and the geo-location factor into a linear function, and calculate the probability that the user will check in a POI. Let $S_{i,j}$ be the probability that user $u_i$ will check in the POI $l_j$ and then let $S_{i,j}^u, S_{i,j}^s, S_{i,j}^g$ represent the factors of user similarity, the friend relationship, and geographical location respectively, where $S_{i,j}$  is defined as
 \begin{equation}\label{eq:AllW}
 S_{i,j}=(1-\alpha-\beta) S_{i,j}^u + \alpha S_{i,j}^s + \beta S_{i,j}^g
 \end{equation}
@@ -361,7 +366,7 @@ S_{i,j}^s=\frac{S_{i,j}^s}{Z_i^s},Z_i^s=max_{l_j\in L-L_i}\{S_{i,j}^s\}\\
 S_{i,j}^g=\frac{S_{i,j}^g}{Z_i^g},Z_i^g=max_{l_j\in L-L_i}\{S_{i,j}^g\}
 \end{aligned}
 \end{equation}
-where $Z_i^u,Z_i^s,Z_i^g$ are the normalization terms.
+{\color{red}where $Z_i^u,Z_i^s,Z_i^g$ are the normalization terms.}
 
 \subsection{Differential privacy}
 \begin{definition}[($\epsilon,\delta$)-differential privacy]\label{def:DP}
@@ -391,13 +396,13 @@ Its strictest definition does not include the additive term $\delta$, i.e., if $
 Sensitivity $\Delta Q$ is only related to the type of query $Q$. Intuitively, it considers the greatest impact on the query results after adding or deleting any record from the database.
 
 There are two basic mechanisms meeting Definition \ref{def:DP}, which are widely used currently to realize differential privacy. One is the Laplace mechanism \cite{FM2010} and the other is the exponential mechanism \cite{FK2007}.
-\begin{definition}[Laplace mechanism]\label{def:LapM}
-\cite{CDwork2011} For a function $f:D\rightarrow S$ with domain $D$ and range $S$, the mechanism $M_{priv}$ in the Eq.(\ref{eq:Lap}) provides the $\epsilon$-differential privacy
-\begin{equation}\label{eq:Lap}
-M_{priv}(D)=f(D)+Lap(\frac{\Delta f}{\epsilon})
-\end{equation}
-\end{definition}
-Laplacian mechanism uses the sensitivity of the $Q$ as a parameter and adds Laplacian noise to the output of the query result. But for non-numeric queries, differential privacy uses an exponential mechanism for noise results because Laplace mechanism failed to solve this problem.
+%\begin{definition}[Laplace mechanism]\label{def:LapM}
+%\cite{CDwork2011} For a function $f:D\rightarrow S$ with domain $D$ and range $S$, the mechanism $M_{priv}$ in the Eq.(\ref{eq:Lap}) provides the $\epsilon$-differential privacy
+%\begin{equation}\label{eq:Lap}
+%M_{priv}(D)=f(D)+Lap(\frac{\Delta f}{\epsilon})
+%\end{equation}
+%\end{definition}
+Laplacian mechanism uses the sensitivity of the $Q$ as a parameter and adds Laplacian noise to the output of the query result. But for non-numeric queries, differential privacy uses an exponential mechanism for noise results because Laplace mechanism failed to solve this problem. {\color{red} We will use Laplacian mechanism in our FRP algorithm \ref{alg_frppA}.}
 %\begin{definition}[Exponential mechanism]\label{def:ExpM}
 %\cite{FK2007} Let $u:(D\times O)\rightarrow R$ be a score function of dataset $D$. The exponential mechanism $M$ satisfies $\epsilon$-differential privacy if
 %\begin{equation}\label{eq:Lap}
@@ -420,6 +425,19 @@ Laplacian mechanism uses the sensitivity of the $Q$ as a parameter and adds Lapl
 %\end{definition}
 %where $S$ is the support set of $X$.
 
+To define privacy precisely, we need to determine a suitable model to describe the database. In many application domains, data can be represented as data tables, e.g., medical records, financial transaction records or employee records. The data table can be regarded simply as a relational database which normally consists of several data tables. A formal definition of database is as follows,
+\begin{definition}[Database]\label{def:Database}
+\cite{CL2006} A database is a triple $D=(R,A,V_{a}|a \in A)$ following
+ \begin{itemize}
+\item[(1)] $R$ is a non-empty finite record set.
+\item[(2)] $A$ is a non-empty finite record set, and
+\item[(3)] each attribute $a \in A$ is a function$a:R\rightarrow V_{a}$ , where $V_{a}$ is the range of $a$, called the domain of $a$.
+\end{itemize}
+\end{definition}
+
+
+
+
 \subsection{Attacking privacy model}\label{exp:AttackingModels}
 It is more and more popular to use mobile APPs nowadays. An infrastructure is rapidly developing that encompasses a great number of users equipped with mobile terminals such as mobile phones that posses location-targeting capabilities, e.g., built-in GPS receivers, and datacom capabilities. At the same time, people like adding and making friends on many social networking platforms which always ask for their personal information. Recommender systems also work like this so it always leads to privacy leaks. We consider two different private attacking models: one is a geographical attacking model and the other one is a buddy relationship attacking model.
 \subsubsection{Geographical attacking model}
@@ -434,25 +452,33 @@ In the POI recommendation system, the user's preference of POIs is personal priv
 \begin{example}\label{e.g.1}
 \cite{DR2012} Assuming that user Bron has been using the recommender system service for some time, the system has also recorded the his POI preference. And Anna, a curious friend of Bron, often goes out with Bron together, such as eating dinner and signing in the restaurant, going to the movies and signing in the cinema and so on. And recently Anna learns that Bron likes to go to city $C$ alone every Saturday night, but she does not receive the check-in information of Bron from the system. That is that maybe Bron selected the privacy check in city $C$. Private checking-in record will not be instantly shared to his friends. So Anna wants to know where Bron went every Saturday night. Anna submits a query to the system. As shown in Fig.\,\ref{fig:AM}, the query: ``What are the POIs nearby?" is firstly sent to the system server by Anna. The returned result from recommender system would be top-K POIs which are recommended to Anna with highest probability. There would be an unusual POI returned such as ``Hell Bar" and the unusual POI is not located in their city  but in the city $C$. According to Anna's background knowledge, she can infer that ``Hell bar" is the POI where Bron went every Saturday night with a high probability.
 \end{example}
-\par In Example \ref{e.g.1}, it shows the recommendation logic of the recommender system based on the user's file information. Although there are different application logic in different recommender systems, the same potential privacy risk is existed. The following example also shows a probable attacking mode because of the similarity between users.
+%\par In Example \ref{e.g.1}, it shows the recommendation logic of the recommender system based on the user's file information. Although there are different application logic in different recommender systems, the same potential privacy risk is existed.
+
+\par In Example \ref{e.g.1} and recommender system, Anna and Bron have higher user similarity $S_{A,B}^u$ , and they are friends, so their friend relationship probability $S_{A,B}^s$ is also high. In the top-$K$ results returned by the recommender system to Anna, some abnormal points appear. These abnormal points are far away from the current location of hers, i.e, the location factor value $S_{A,B}^g$ is very low. Anna understands the recommendation algorithm so she infers that this POI has the highest predicted check-in probability for her and such anomaly result is mainly because of her best friend Bron who has a similar preference.
+The following example also shows a probable attacking mode because of the similarity between users.
 \begin{example}\label{e.g.2}
 \cite{DR2012} It is still assumed that user Bron has used the recommender system service for some time, the system has also recorded his POI preferences, which include several unusual POIs: ``Game Restaurant" ($POI_a$), ``Wonder Clothing Store" ($POI_b$), ``Homosexual Museum" ($POI_c$) and ``Hell Bar" ($POI_d$). Bron selected to share the check-in information of the $POI_a$, $POI_b$ and $POI_c$ with his friends, but in the $POI_d$ Bron would like to choose a private signing. Anna, a curious friend of Bron, doubts that Bron often goes to a bar called ``Hell Bar" ($POI_d$) which does not have a good reputation. So Anna sends a virtual information to the server to indicate that the $POI_d$ is one of her preferred POIs. Then the server return Anna a message: People who like $POI_d$ also often like $POI_a$, $POI_b$, $POI_c$. Since these three POIs belong to unusual ones, and Bron also shared the high score of the three POIs publicly. For the above reasons, Anna can infer that $POI_d$ is also Bron's preferred POI with a high probability.
 \end{example}
-\par These two examples tell us two different attacking patterns basing on friendship. We will solve these problems in Section \ref{sec:FRPPA}.
+
+In Examples \ref{e.g.1} and \ref{e.g.2}, we have assumed that the attacker knows the recommendation algorithm of the recommender system, but not yet the value of each parameter in the algorithm. These tell us two different attacking patterns basing on friend relationship. We will solve these problems in Section \ref{exp:FRPPA}.
 
 %\subsection{Private Recommendation}
-\section{Privacy-preserving Approaches}\label{sec:PPA}
-We investigate two attacking models which may reveal the private information of the user¡¯s location and friend ties in the previous section so as to put forward the corresponding privacy-preserving algorithms for them now and then evaluate the utility and performance of our approaches in detail. We also build them two methods into the recommender framework as our novel idea to return recommendations enjoying privacy guarantees followed by strict theoretical analysis.
+\section{Privacy-preserving approaches}\label{sec:PPA}
+We investigate two attacking models which may reveal the private information of the user¡¯s location and friend ties in the previous section so as to put forward the corresponding privacy-preserving algorithms for them and then evaluate the utility and performance of our approaches in detail. We also build the two methods into the recommender framework as our novel idea to return recommendations enjoying privacy guarantees followed by strict theoretical analysis.
 
 \subsection{GLP: Geographical location privacy-preserving algorithm}\label{exp:Location PPA}
-We will propose the GLP algorithm to preserve location privacy for the geographical attacking model in Section \ref{exp:AttackingModels}. Lu et al.~\cite{HLU2008} proposed a general preserving method called $\left\langle k, s\right\rangle$-privacy which is basing on the generator of virtual nodes to blurred geographical location. They proposed two dummy methods called CirDummy and GridDummy to realize $\left\langle k, s\right\rangle$-Privacy, where CirDummy is dedicated to generating $k-1$ additional nodes in a virtual circle which contains the user's real position with a random center and an area of $k\cdot s$ and GridDummy is meant to produce a big virtual square which consists of $k$ small squares with an area of $s$ and make the user's real position be a point of any small square. We notice many deficiencies of this algorithm. Note that $\left\langle k, s\right\rangle$-privacy algorithm needs receive two parameters $k$ and $s$ and fixed $k$ and $s$ can not be adapted to all regions, i.e., it is not taken into account that population densities vary widely from place to place. For example, there is a large population density in the lively commercial street and large parameters will not significantly increase privacy-preserving degree but will significantly reduce the availability of the valuable data. Conversely, in the rural areas or other areas with a relatively sparse population, unchangeable parameters seem too small. At the same time, due to sparse population and flat terrain, attackers can even easily catch the user in his current fuzzy area quickly, which exposes the user's location privacy. On the other hand, in the design of  $\left\langle k, s\right\rangle$-privacy, there is no quantification of the actual degree of privacy preservation, so that the user can not understand how much private it is if he took different privacy parameters. Last but not least, the privacy parameters may be too large to many of the service providers, so it has basically lost the value of the data because these large data can not be effectively used. These problems make recommendation service providers lose the opportunity to improve the user experience and give much privacy guarantees.
+
+In this part,
+we will propose the GLP algorithm to preserve location privacy and deal with the shortcomings of $\left\langle k, s\right\rangle$-privacy~\cite{HLU2008}  as well for the geographical attacking model discussed in Section \ref{exp:AttackingModels}.
 
 \subsubsection{$\langle r, h\rangle$-Privacy}
-We improve the algorithm for the defects and shortcomings of $\left\langle k, s\right\rangle$-privacy, and put forward $\langle r, h\rangle$-privacy algorithm, and use Shannon information entropy to carry out theoretical evaluation. $\langle r, h\rangle$-privacy inherits the idea of $\langle k, s\rangle$-privacy but we do not generate virtual nodes any more. We directly make the user position blur into a virtual circle, and the precise position may exist anywhere in the circle. In this ambiguous mode, the probability of the attacker inferring the user's real position approaches $0$. In such a low probability case, the attacker may also have a kind of violent way to find the user and the $\langle r, h\rangle$-privacy algorithm is also able to adjust the radius of the circle based on the local population, allowing the user to have enough time to leave without being found. It also assumes that an attacker can obtain all the information from the server, as the $\langle k, s\rangle$-privacy. If a user wants to send a position to the server, a fuzzy one will be sent in our settings.
+%We improve the algorithm for the defects and shortcomings of $\left\langle k, s\right\rangle$-privacy, and put forward $\langle r, h\rangle$-privacy algorithm, and use Shannon information entropy to carry out theoretical evaluation.
+Our $\langle r, h\rangle$-privacy inherits the idea of $\langle k, s\rangle$-privacy but we do not generate virtual nodes any more. We directly make the user position blur into a virtual circle, and the precise position may exist anywhere in the circle. In this ambiguous mode, the probability of the attacker inferring the user's real position approaches $0$. In such a low probability case, the attacker may also have a kind of violent way to find the user and the $\langle r, h\rangle$-privacy algorithm is also able to adjust the radius of the circle based on the local population, allowing the user to have enough time to leave without being found. We also assume that an attacker can obtain all the information from the server, as the $\langle k, s\rangle$-privacy. If a user wants to send a position to the server, a fuzzy one will simultaneously be sent in our settings.
+
 \begin{definition}[$\langle r, h\rangle$-Privacy]\label{def:RHprivacy}
 If a geographical location algorithm turns a position to a larger virtual circle with a radius based on local population density $h$ and  moves the original position anywhere in the circle with a vector $r$, then the algorithm satisfies $\langle r, h\rangle$-privacy.
 \end{definition}
-\par The $\langle r, h\rangle$-privacy algorithm shown in Algorithm \ref{alg_rhA} takes both population and private geo-location into account. It first calculates the number of the given $POI_i$ history check-in points to determine whether the current POI is in a densely populated or sparsely populated place (line 2). Then calculate the radius of the virtual circle that needs to be blurred by the current $POI_i$ based on the sum $h_i$ of history check-in points (line 3). Finally, move the center point $POI_i$  to a new center $o^{\prime}$ with the vector of angle $\theta(\theta\in[0,2\pi])$, length $l (l\in(0,R))$ and we get the blurred circle (lines 4-6).
+\par Our $\langle r, h\rangle$-privacy algorithm shown in Algorithm \ref{alg_rhA} takes both population density and private geo-location into account. It first calculates the radius of the virtual circle that needs to be blurred by the current $POI_i$ based on the number of $POI_i$'s historical total check-ins $h_i$ to determine whether the current $POI_i$ is in a densely populated or sparsely populated place (line 1). If it is sparsely populated, we should move this $POI_i$ to a farther position after selecting a random angle $\theta$ and appropriate distance $l\in[R_{i}/2,R_{i}]$ (lines 2-6). Finally, we calculate the new coordinate of the point $o^{\prime}$ and generate a virtual circle with a center of $o^{\prime}$ and a radius of $R_{i}$.
 \\
 
 \hrule
@@ -461,49 +487,58 @@ If a geographical location algorithm turns a position to a larger virtual circle
   \begin{algorithm}{$\langle r, h\rangle$-Privacy algorithm}\label{alg_rhA}
   \begin{algorithmic}[1]
   \Require the position $p_{i}(x_i,y_i)$ of $POI_i$, the total check-in number $h_{i}$ of $POI_i$,
-  \Ensure $o_i^{\prime}$, $R_i$
+  \Ensure $o_i^{\prime}(x,y)$, $R_i$
   \Function{\textit{CircleObfuscate(R,h)}}{the position of $POI_i$, number $h_{i}$ }
   \State $R_i \leftarrow R(h_i)$ \text{// the radius are based on $h_{i}$ in Eq.(\ref{equ:VirtualCR})}
-         \If{$h_{i} < 3$}
-           \State $\theta \leftarrow random(0,2\pi)$
+  \State $\theta \leftarrow random(0,2\pi)$
+         \If{$h_{i} < 3$} \text{// if it is a sparsely populated place}
            \State $l\leftarrow random(R/2,R)$
-           \State datermine $o^{\prime}$ with a vector ($l,\theta$)
+           \State determine $o^{\prime}$ with a vector $r \leftarrow (l,\theta$)
          \Else
            \State determine a position $o^{\prime}$ at random
            \State $s.t.\quad dist(p_{i},o^{\prime})\in [0,R_{i}]$
          \EndIf
   \State $POI_{i} \leftarrow$ obfuscate $POI_i$ to a circle with center $o^{\prime}$ and radius $R_i$
-  \State
-  \State \Return{$o_i^{\prime}$ and $R_i$}
+  \State $x = x_{i}+ l\cdot\cos\theta$
+  \State $y = y_{i}+ l\cdot\sin\theta$
+  \State \Return{$o_i^{\prime}(x,y)$ and $R_i$}
   \EndFunction
   \end{algorithmic}
   \end{algorithm}
 \hrule
 \vspace{0.5cm}
 
-There are several ways to obtain the virtual circle radius when calculating the total number of a POI records as a parameter. And to be simple and effective, we choose the linear function to calculate:
+There are several ways to obtain the virtual circle radius $R_{i}$. Here we use a simple and effective method, i.e., a linear function of $h_i$ to calculate:
 \begin{equation}\label{equ:VirtualCR}
-R_i=-\frac{R_{max}-R_{min}}{H_{max}}\cdot h_i+R_{max}
+R(h_{i})=-\frac{R_{max}-R_{min}}{H_{max}}\cdot h_i+R_{max}
 \end{equation}
-where $R_{max}$ and $R_{min}$ respectively represent the upper and lower bounds of the virtual circle radius, and $H_{max}$ represents the maximum number of historical check-in numbers in all POIs($H_{max}=max\{h(POI_1),h(POI_2),\dots,h(POI_n)\}$). Last but not least , $R_{min}$ of virtual circle radius is set to prevent some hotspot POI from losing the privacy guarantee as the virtual circle radius is too small as the number of user checkouts increases.
-\par In the $\langle r,h\rangle$-privacy algorithm, the total records $H_{max}$, the upper and lower bounds of the virtual circle radius $R_{max}$ and $R_{min}$, need to be further determined. $H_{max}$, such as Foursquare data ,can reach more than 10,000, and overview all the POI history records, only a small amount of POI can reach 10,000 or so, the vast majority of the POI history check number even less than 10. So it is more important to determine the upper bound of the radius than the lower bound. The empirical value of $R_{max}$ is 200 meter so the maximum area of the virtual area is $S_{circle}=\pi\cdot R_{max}^{2} \approx 12500m^2 $ , only the $1/8$ of maximum privacy area in $\langle k, s\rangle $-privacy algorithm.
-\par $\left\langle r, h\right\rangle$-Privacy will also face the situation of failure. For example, some POI history check numbers are only 1, and in this case the area of virtual circle reaches maximum. Also the center point $POI_i$ would move to a new center $o^{\prime}$ with the vector of angle $\theta(\theta\in[0,2\pi])$, length $l(l \in(0,R))$, however, it is possible there will be a small length $l$. Under this certain situation, attackers can quickly locate the precise position of the POI and catch the target user. Hence, in this case, we let length $l\in[R/2,R]$ to ensure that the virtual circle center will not be close to the user's real position.
+where $R_{max}$ and $R_{min}$ represent the upper and lower bounds of the virtual circle radius respectively, and $H_{max}$ represents the maximum number of historical check-in numbers in all POIs\,($H_{max}=max\{h(POI_1),h(POI_2),\dots,h(POI_n)\}$).
+$R_{min}$ is set to prevent some POI hotspots from losing the privacy guarantee since the virtual circle radius will be
+too small when the number of user checkouts increases.
+
+We will also face some extreme situations when using $\left\langle r, h\right\rangle$-privacy. For example, the historical check-in numbers of some POIs are only 1, and then the area of virtual circle reaches maximum. Under this situation, attackers can quickly locate the precise position of the POI and catch the target user. Hence, we let $dist(p,o^{\prime}) \in [R/2,R]$ to ensure that the virtual circle center will not too close to the user's real position.
+
+%Also the center point $POI_i$ would move to a new center $o^{\prime}$ with the vector of angle $\theta(\theta\in[0,2\pi])$, length $l\,(l \in(0,R))$, however, it is possible there will be a small length $l$.
 
 \subsubsection{Theoretical analysis of $\langle r, h\rangle$-privacy}
-We provide a attractive theoretical analysis way of GLP algorithm by using differential entropy \cite{CL2006} which supplies a quantitative indicator for the effect of blurring, i.e., the privacy guarantee.
+We provide a attractive theoretical analysis of GLP algorithm by using differential entropy %\cite{CL2006}
+\cite{RFM1961} which supplies a quantitative indicator for the effect of blurring, i.e., the privacy guarantee.
 %\begin{definition}[Support Set]\label{def:SupportSet}
 %\cite{FGB2013} Let $X$ be a random variable whose cumulative distribution function is $F(x)=Pr(X\leqslant x)$. If $F(x)$ is continuous, then the random variable is continuous. When the derivative of $F(x)$ exists, let $f(x)=F'(x)$. If $\int_{-\infty}^{+\infty}f(x) = 1$, $f(x)$ is the probability density function of $X$. In addition, a set of $x$ which satisfies $f(x)\gtrdot 0$ is called the Support Set of $X$.
 %\end{definition}
-\begin{definition}[Differential Entropy]\label{def:DE}
-\cite{RFM1961} A differential entropy $h(X)$ for a continuous random variable $X$ with density function $f(x)$ is defined as
-\begin{equation}\label{eq:DiffEntropy}
-h(X)=-\int_{S}f(x)\log_2 f(x)dx
-\end{equation}
-\end{definition}
-where $S$ is the support set of $X$, i.e., $S=\{x\,|\, f(x)>0\}.$
-\begin{theorem}[Distance distribution]\label{theorem:Dd}
+
+
+%\begin{definition}[Differential Entropy]\label{def:DE}
+%\cite{RFM1961} A differential entropy $h(X)$ for a continuous random variable $X$ with density function $f(x)$ is defined as
+%\begin{equation}\label{eq:DiffEntropy}
+%h(X)=-\int_{S}f(x)\log_2 f(x)dx
+%\end{equation}
+%\end{definition}
+%where $S$ is the support set of $X$, i.e., $S=\{x\,|\, f(x)>0\}.$
+
+\begin{lemma}[Distance distribution]\label{lemma:Dd}
 In the $xOy$ cartesian coordinate system, there is a point $H(h,0)$ on the x-axis, with center $O$(the origin) and radius $R(0\leqslant R\leqslant h)$.). Let any point in the circle be $P(x_0,y_0)$, where $x_0^{2}+y_0^{2}\leqslant R^2$. $z=\sqrt{(x_0-h)^{2}+y_0^2}$ is the distance between $H(h,0)$ and  $P(x_0,y_0)$ . Then the probability density function of the distance $z$ from point $H$ to any point $P$ in the circle can be obtained. It is $$f_Z(z)=\frac{2z}{R^2}$$
-\end{theorem}
+\end{lemma}
 \begin{proof}
 From the above we can see that the coordinates of $P(X,Y)$ in the circle obey the uniform distribution of two-dimensional; the joint probability density function is $1/\pi R^2$, then the distribution function of $z$ is
 \begin{equation}\label{equ:distance}
@@ -515,65 +550,106 @@ F_Z(z)&=P\{\sqrt{(x_0-h)^{2}+y_0^{2}\leqslant z}\}
 \end{aligned}
 \end{equation}
 Hence,
-\begin{equation}\label{equ:distance_1}
+\begin{equation*}\label{equ:distance_1}
 f_Z(z)=F_Z^{\prime}(z)=(\frac{z^2}{R^2})^{\prime}=\frac{2z}{R^2}
-\end{equation}
+\end{equation*}
 \end{proof}
 
-\par When the algorithm is added to the POI recommendation system, the distance between any two POIs is required according to Eq.(\ref{eq:LW}) and Eq.(\ref{eq:PRLJ}) in Section \ref{sec:RelatedWork} when calculating the geographical location factor. In this paper, the distance $z_{i,j}=Dist(POI_i,POI_j)$ between two private POIs is defined as the distance between their virtual circles so as to facilitate the calculation. According to the Theorem \ref{theorem:Dd}, the probability density function of $z_{i,j}$ is:
+
+\par When the algorithm is added to the normal POI recommendation system, the distance between any two POIs is required according to Eq.(\ref{eq:LW}) in Section \ref{sec:RelatedWork} when calculating the geographical location factor. In this paper, the distance $z_{i,j}=dist(POI_i,POI_j)$ between two private POIs is defined as the distance between their virtual circles so as to facilitate the calculation.
+
+\begin{theorem}[Privacy Gain]\label{theorem:PrivacyGain}
+When adopting GLP algorithm to calculate the location factor weight, instead of the normal method in Eq.(\ref{eq:PRLJ}),  we will get a reasonable information gain named privacy gain which is positive because of the distance $z_{i,j}$ between virtual circles.
+\end{theorem}
+\begin{proof}
+According to the Theorem \ref{lemma:Dd}, the probability density function of $z_{i,j}$ is
 \begin{equation}\label{equ:distance_2}
 P(z)=\frac{2z}{R^2}
 \end{equation}
-\indent Then using the expectation $E(z_{i,j})$ of the probability density function of $z$ instead of the exact distance between the two POIs, we have
+Then use the expectation $E(z)$ of the probability density function $P(z)$ to replace the exact distance between any two POIs, we have
 \begin{equation}\label{equ:distance_3}
 E(z)=\int_{h-R}^{h+R}z\cdot\frac{2z}{R^2}\,dz=\frac{12h^2+4R^2}{3R}
 \end{equation}
-\indent And the POI was blurred into a virtual circle, resulting in the distance uncertainty between POIs. Hence, the differential entropy of the random variable $z_{i,j}$ can be calculated as
+And note the POI was blurred into a virtual circle, resulting in the distance uncertainty between POIs. Hence, the differential entropy \cite{RFM1961} of the random variable $z_{i,j}$ can be calculated as
 \begin{equation}\label{equ:GLP}
 \begin{aligned}
-h_(z)&=\int_{h-R}^{h+R}\frac{2z}{R^2}\log(\frac{2z}{R^2})\,dz
+h_(z)&=-\int_{h-R}^{h+R}\frac{2z}{R^2}\log(\frac{2z}{R^2})\,dz
 \\&=\frac{z^{2}\ln2-\frac{1}{2}z^{2}-2z^{2}\ln R}{R^{2}\cdot\ln2}|_{h-R}^{h+R}
 \\&=\frac{(R+h)^{2}[\ln(2R+2h)-\frac{1}{2}]-(R-h)^{2}[\ln(2R-2h)-\frac{1}{2}]}{2\ln2}
+\\&>0
 \end{aligned}
 \end{equation}
 
+\end{proof}
+
+
+
 \subsection{FRP: Friend relationship privacy-preserving algorithm}\label{exp:FRPPA}
-In the social networking recommender system, each user's friends are potential attackers. They can derive the user's privacy check-in information with a large probability from the POI recommendation results. In Examples \ref{e.g.1} and \ref{e.g.2}, we have assumed that the attacker knows the recommendation algorithm of the recommender system, but the setting of each parameter in the algorithm is not achieved by attackers. For example, in Section \ref{sec:Background}, the predicted probability of the user for the POI is composed of three parts: user similarity , friend relationship and location which are combined in a linear function, where the linear parameters are $1-\alpha-\beta$ , $\alpha$ and $\beta$, $0\leqslant \alpha+\beta\leqslant1$. In Example \ref{e.g.1}, the attacker Anna and the normal user Bron often go out and visit POIs together. Therefore, in the recommender system, Anna and Bron have higher user similarity $S_{A,B}^u$ , and they are friends, so their friend relationship probability $S_{A,B}^s$ is also high. In the top-$K$ results returned by the recommender system to Anna, some abnormal points appear. These abnormal points are far away from the current location of hers, i.e, the location probability $S_{A,B}^g$ is very low. Anna understands the recommendation algorithm so she infers that the POI in the recommended result must be the highest predicted check-in probability for her. Hence, in the case of that three linear parameters $1-\alpha-\beta$ ,$\alpha$ and $\beta$ are constant, the user similarity factor $S_{A,B}^u$, and friend relationship factor $S_{A,B}^s$, must be very high, so Anna can believe with a high probability that this anomaly is because of her best friend Bron who has a similar preference.
-This section we will propose the FRP algorithm based on differential privacy for the friend relationship attacking model in Section \ref{exp:AttackingModels}.
+
+We will in this section propose the FRP algorithm based on differential privacy for the friend relationship attacking model discussed in Section \ref{exp:AttackingModels}.
+
 \subsubsection{FRP algorithm}
-We add a differential privacy algorithm to the existing recommender system so that the algorithm has a certain degree of versatility. As long as it is used to calculate the similarity between friends, the algorithm can be applied to the system.
-\par FRP algorithm is based on social network and it can prevent the potential attack. The attacker may infer the target user's privacy information with a high probability if recommendation probabilities of the user similarity, friend relationship and location have a large difference in the POI recommender system. Our algorithm can be simply understood that it can add enough noise to the friend relationship factor to make it become more smooth, so that the attacker can not infer that his friend would have anything with the returned results from the system and the attacker can not obtain any related private information.
-\begin{definition}[Privacy recommendation]\label{def:PR}
-If the recommendation algorithm A is designed in the LBSN recommendation system and satisfies $\epsilon$ - differential privacy as accurate as possible. Then the algorithm A is to meet the privacy recommendation.
-\end{definition}
-\begin{corollary}[$\epsilon$-differential privacy]\label{COR:DP}
- \cite{ZLZ2017} Let $F:D\rightarrow R^k$ be a score function, its sensitivity is $\Delta f$, then by Definition \ref{def:LapM}, $F(D)+Lap^k(\Delta F /\epsilon)$ satisfies $\epsilon$-differential privacy, where $Lap^k(\varphi)$ is a $k$-dimensional vector obtained from the Laplacian distribution with a standard variance of $\sqrt{2}\varphi$.
+
+In the social networking recommender system, each user's friends are potential attackers.
+%They can derive the user's privacy check-in information with a large probability from the POI recommendation results.
+The attacker may infer the target user's privacy information with a high probability if the user is very close to his friends
+(i.e., the value of friend relationship is high) in the POI recommender system.
+Our FRP algorithm try to add enough noise to the factor of friend relationship, so that the attacker will not infer that his friends would have any connection with the returned results from the system and will not obtain any related private information.
+Therefore, the algorithm will prevent the potential attacks.
+
+%We add a differential privacy algorithm to the existing recommender system so that the algorithm has a certain degree of versatility. As long as it is used to calculate the similarity between friends, the algorithm can be applied to the system.
+
+%
+%\begin{definition}[Privacy recommendation]\label{def:PR}
+%If the recommendation algorithm A is designed in the LBSN recommendation system and satisfies $\epsilon$ - differential privacy as accurate as possible. Then the algorithm A is to meet the privacy recommendation.
+%\end{definition}
+
+We choose $\epsilon$-differential privacy and Laplace mechanism to build our FRP algorithm. The following corollary will be directly used in the design of the FRP algorithm.
+
+\begin{corollary}[Laplacian $\epsilon$-differential privacy]\label{COR:DP}
+ \cite{ZLZ2017} Let $F:D\rightarrow R^k$ be a score function, its sensitivity is $\Delta F$, then $F(D)+Lap^k(\Delta F /\epsilon)$ satisfies $\epsilon$-differential privacy, where $Lap^k(\varphi)$ is a $k$-dimensional vector obtained from the Laplacian distribution with a standard variance of $\sqrt{2}\varphi$.
 \end{corollary}
-\par Let $Pr\{C_{B,j}=1|top-K POI\}$ represent that attackers can infer the probability of user B checking in the $POI_j$ on the premise of system returning top-K POIs. The inference probability will not be particularly high if we add FRP in the recommender system, even though the attackers know the working process of the system. Although there are a number of basic definitions of privacy in the existing literatures, most definitions are too broad and have a drawback of no quantitative indicators, so in this article, we choose $\epsilon$ - differential privacy to build into FRP shown in Algorithm \ref{alg_frppA}. The algorithm first randomly deletes one user $u_i$'s one friend relationship link from the database $D$, i.e., they are no longer friends, and then generates a new neighbor database $D^{\prime}$ (lines 3-4). Second, we obtain the $L1$-vector norm of the two weight vectors, that is, the global sensitivity of the query function (line 5). The scale parameter of Laplacian noise can be obtained from the sensitivity of the query function (line 6) and the positional parameter is $0$. According to this, we can get the complete Laplace distribution and add Laplacian noise to the original friend relationship factor vector finally. We can see that the friend relationship factor become smoother and closer, and it will not exist the situation that the friend relationship weights of some users are particularly high.
+The FRP algorithm is shown in Algorithm \ref{alg_frppA}.
+We first give a function to compute friend similarity for any two users according Eq.(\ref{eq:FRLF})(lines 1-6). Second randomly delete one user $u_i$'s one friend relationship link from the database $F_i$, i.e., they are no longer friends, and then generate a new neighbor database $F_i^{\prime}$ (lines 10-12). Then, calculate user $u_i$ and all his friends $u_k$'s friend relationship factors and save them in lists $SI_{i}(F_i)$ and $SI_{i}(F_i^{\prime})$ basing on dataset $F_i$ and $F_i^{\prime}$ respectively(lines 13-14).  Hence, we can obtain the $\infty$-vector norm of the two friend relationship factor vectors, that is, the global sensitivity of the query function(line 16). Then we adopt the position parameter and scale parameter of Laplacian noise, where the former is $0$ and the latter can be obtained from the sensitivity of the query function(lines 17-18). According to them, we can get the complete Laplace distribution and add Laplacian noise to the original friend relationship factor finally(line 19). We can see that the friend relationship factor become smoother and closer, and it will not exist the situation that the friend relationship weights of some users are particularly high from the experiment result after we implement FRP in the recommendation system.
 \\
+
 \hrule
 %\noindent\rule[0.25\baselineskip]{\textwidth}{1pt}
 %\noindent\rule[0.25\baselineskip]{\textwidth}{1pt}
   \begin{algorithm}{Friend relationship privacy-preserving algorithm}\label{alg_frppA}
   \begin{algorithmic}[1]
-  \Require the privacy parameter $\epsilon$
+  \Require the privacy parameter $\epsilon$, Friend dataset $F$, POI dataset $L$, Buddy coefficient $\gamma$
   \Ensure $SI_{i,k}^{\prime}$
- % \Function{\textit{Social Differential Privacy}}{the privacy parameter $\epsilon$}
-  \For {each $u_i$ with user $u_k$'s $SI_{i,k}^{\prime}$ }
-  \State database $D$ denotes all $u_i$¡¯s relationship
-  \State $D^¡¯$ denotes delete one of $u_i$¡¯s relationship, $D^{\prime}\leftarrow D-\{u_i,u_{random}\}$
-  \State sensitivity $\Delta f\leftarrow max_{D,D^{\prime}}||SI_{i,k}(D)-SI_{i,k}(D^{\prime})||_1$
-  \State scale factor $sf\leftarrow\Delta f /\epsilon$
-  \State $\forall SI_{i,k}^{\prime}\leftarrow SI_{i,k}+Laplace(0,sf) $
+  \Function{\textit{FriendSimilarity}}{$F$,$L$,$\gamma$}
+    \If{$F_i, F_k, L_i,L_k$ are not empty}
+  \State \Return {$\gamma\cdot (F_i\bigcap F_k)/(F_i\bigcup F_k) + (1-\gamma)\cdot (L_i\bigcap L_k)/(L_i\bigcup L_k)$}
+    \Else
+  \State \Return {$0$}
+   \EndIf
+   \EndFunction
+
+  \Function{\textit{Social Differential Privacy}}{the privacy parameter $\epsilon$}
+  \State initialize two list $SI_{i}(F_i), SI_{i}(F_i^{\prime})$
+  \For {each $u_i$ with each user $u_k$'s $SI_{i,k}^{\prime}$,}
+  \State database $F_i$ denotes all $u_i$¡¯s relationship
+  \State $F_i^{\prime}$ denotes delete one of $u_i$¡¯s relationship, $F_i^{\prime}\leftarrow F_i-\{u_i,u_{random}\}$
+  \State $SI_{i}(F_i)\leftarrow append\quad FriendSimilarity(F,L,\gamma)$
+  \State $SI_{i}(F_i^{\prime}) \leftarrow append\quad FriendSimilarity(F^{\prime},L,\gamma)$
   \EndFor
+  \State sensitivity $\Delta f\leftarrow ||SI_{i}(F_i)-SI_{i}(F_i^{\prime})||_{\infty}$
+  \State position factor $pf\leftarrow 0$
+  \State scale factor $sf\leftarrow\Delta f /\epsilon$
+  \State $\forall SI_{i,k}^{\prime}\leftarrow SI_{i,k}+Laplace(pf,sf) $
   \State \Return{$SI_{i,k}^{\prime}$}
- % \EndFunction
+  \EndFunction
   \end{algorithmic}
   \end{algorithm}
 \hrule
+\vspace{0.5cm}
+
 
 \subsubsection{Theoretical analysis of FRP}
-It is inferred that Algorithm \ref{alg_frppA} is a privacy recommendation one because it satisfies Definition \ref{def:PR}.  We still use the Shannon information entropy to evaluate the FRP algorithm because it mainly adopts wiping out the friend relationship weights with great differences for fuzzy implementation. There is a property that the bigger difference between users' friend relationship weights, the greater the information entropy, i.e., the greater uncertainty and the smaller the probability that the attacker derives the user's private information from the recommended POIs.
+  We still use the Shannon information entropy to evaluate the FRP algorithm because it mainly adopts wiping out the friend relationship weights with great differences for fuzzy implementation. There is a property that the bigger difference between users' friend relationship weights, the greater the information entropy, i.e., the greater uncertainty and the smaller the probability that the attacker derives the user's private information from the recommended POIs.
 \begin{theorem}[Correctness]\label{theorem:correctness}
 Friend relationship factor with differential privacy increases the information entropy of the friend relationship factor distribution, and improves the uncertainty of the weight distribution, that is $H(SI_i^{\prime})-H(SI_i)>0$ protects the user information privacy.
 \end{theorem}
@@ -588,22 +664,20 @@ H(SI_i^{\prime})-H(SI_i)&=H(SI_i+Lap(\frac{\Delta f}{\epsilon}))-H(SI_i)
 \end{equation}
 Then
 \begin{equation}\label{equ:correctness_1}
-2^{SI_i^{\prime})-H(SI_i)}=2^{1+\ln{(\frac{2\Delta f}{\epsilon})}}=4\times\frac{\Delta f}{\epsilon}
+2^{H(SI_i^{\prime})-H(SI_i)}=2^{1+\ln{(\frac{2\Delta f}{\epsilon})}}=4\times\frac{\Delta f}{\epsilon}
 \end{equation}
 where the result $4\times\Delta f /\epsilon$ is the support set of the differential entropy, so the result is always positive. Hence, $H(SI_i^{\prime})-H(SI_i)>0$.
 \end{proof}
 
-\subsection{Theoretical analysis of private POI recommendation}\label{sec:analysis}
-We employ shannon entropy to measure the degree of privacy guarantee. First, to define privacy precisely, we need to determine a suitable model to describe the database. In many application domains, data can be represented as data tables, e.g., medical records, financial transaction records or employee records. The data table can be regarded simply as a relational database which normally consists of several data tables. A formal definition of database is as follows,
-\begin{definition}[Database]\label{def:Database}
-\cite{CL2006} A database is a triple $D=(R,A,V_{a}|a \in A)$ following
- \begin{itemize}
-\item[(1)] $R$ is a non-empty finite record set.
-\item[(2)] $A$ is a non-empty finite record set, and
-\item[(3)] each attribute $a \in A$ is a function$a:R\rightarrow V_{a}$ , where $V_{a}$ is the range of $a$, called the domain of $a$.
-\end{itemize}
-\end{definition}
-\par We calculate the entropy of an individual record released by a database as
+\subsection{Private POI recommendation method}\label{sec:analysis}
+
+Combined with Algorithm and
+We say that it is a privacy recommendation one.
+
+We employ shannon entropy to measure the degree of privacy guarantee.
+
+We calculate the entropy of an individual record released by a database as
+
 \begin{equation}
   H^{\prime}(X_{i}) = -\sum^{k}_{x=1}p^{\prime}_{ix}lg(p^{\prime}_{ix})
 \end{equation}
@@ -615,23 +689,26 @@ where $H^{\prime}(X_{i})$ is the entropy of the $i$th record after a statistical
 \end{equation}
 \end{definition}
 For a given database statistics release, the above definition links the privacy disclosure to the largest information loss of a single record in the database.
-\begin{lemma}[Entropy-chain rule]\label{lemma:entropy}
-Let $X,Y,Z$ be three discrete random variables. If $X$, $Y$, and $Z$ are mutually independent and $M = M(X,Y,Z)$ is a one-to-one corresponding function, there will be $H(M) = H(X)+H(Y)+H(Z)$.
+\begin{lemma}[Functional entropy-chain rule]\label{lemma:entropy}
+Let $X,Y,Z$ be three discrete random variables and $M = X+Y+Z$ be a random variable. If $X$, $Y$, and $Z$ are mutually independent and $M = M(X,Y,Z)$ is a one-to-one corresponding function, there will be $H(M) = H(X)+H(Y)+H(Z)$.
 \end{lemma}
 \begin{proof}
-$M$ is a function about $M(X,Y,Z)$ and the random variables $X,Y,Z$ are independent of each other so there exists $H(X,Y,Z) = H(X)+H(Y|X)+H(Z|X,Y)\leq H(X)+H(Y)+H(Z)$ according to \cite{GRM2011}. Hence, it can be proved that $H(M) = H(X)+H(Y)+H(Z)$ iff $M(X,Y,Z)$ is also a function about $M$.
+$M$ is a function about $M(X,Y,Z)$ and the random variables $X,Y,Z$ are independent of each other so there exists $H(X,Y,Z) = H(X)+H(Y|X)+H(Z|X,Y) = H(X)+H(Y)+H(Z)$ according to \cite{GRM2011}. Also $H(X,Y,Z) = H(M(X,Y,Z))$ iff $M(X,Y,Z)$ is also a function about $M$, Hence,
+$$H(M)=H(M(X,Y,Z))=H(X,Y,Z)=H(X)+H(Y)+H(Z)$$
 \end{proof}
 \begin{theorem}[Balance formula]\label{theorem:BF}
 Under the assumption that the three parameters are pairwise independent, the entropy of the POI probability distribution obtained by the private POI recommendation algorithm is greater than the normal recommendation algorithm.
 \end{theorem}
 \begin{proof}
-It is proved that the information entropy of location and friend relationship increased after adding privacy-preserving algorithm in Sections \ref{exp:Location PPA} and \ref{exp:FRPPA}, where $H(z)=H(2z/R^{2})>0$ and $H(SI_i^{\prime})-H(SI_i)>0$, $z$ represents the probability distribution of the distance between a POI to another fuzzy circle of a POI, $SI$ represents the probability distribution of the friend relationship factor between the user and all other users. Based on Eq.(\ref{equ:GLP}), Eq.(\ref{equ:FRP}) and Lemma \ref{lemma:entropy}, the balance formula is given by
+It is proved that the information entropy of location and friend relationship increased after adding privacy-preserving algorithm in Theorems \ref{theorem:PrivacyGain} and \ref{theorem:correctness}, where $H(z)=H(2z/R^{2})>0$ and $H(SI_i^{\prime})-H(SI_i)>0$, $z$ represents the probability distribution of the distance between a POI to another fuzzy circle of a POI, $SI$ represents the probability distribution of the friend relationship factor between the user and all other users. Based on Eq.(\ref{equ:GLP}), Eq.(\ref{equ:FRP}) and Lemma \ref{lemma:entropy}, the balance formula is given by
 \begin{equation}\label{equ:BF}
 \begin{aligned}
 \Delta H&=H(S_{i,j}^{\prime})-H(S_{i,j})
 \\&=H(S_{i,j}^{u}+S_{i,j}^{\prime s}+S_{i,j}^{\prime g})-H(S_{i,j}^{u}+S_{i,j}^{s}+S_{i,j}^{g})
+\\&=H(S_{i,j}^{u})-H(S_{i,j}^{u})+H(S_{i,j}^{\prime s})-H(S_{i,j}^{s})+H(S_{i,j}^{\prime g})-H(S_{i,j}^{g})
 \\&=H(S_{i,j}^{\prime s}+S_{i,j}^{\prime g})-H(S_{i,j}^{s}+S_{i,j}^{g})
-\\&=H(\frac{2z}{R^{2}})+H(Lap(\frac{\Delta f}{\epsilon})) > 0
+\\&=H(\frac{2z}{R^{2}})+H(Lap(\frac{\Delta f}{\epsilon})) 
+\\&>0
 \end{aligned}
 \end{equation}
 \end{proof}
@@ -692,6 +769,23 @@ We also use the obtained values of $\alpha$ and $\beta$ for other top-$K$ recomm
 
 
 
+
+
+
+\subsubsection{Determining the radius in the GLP algorithm}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=10cm]{NumberofPOIs.pdf}
+    \caption{The check-in number of POI\,(logarithmic)}\label{fig:NoPOI}
+\end{figure}
+
+There are several parameters not determined yet in Eq.(\ref{equ:VirtualCR}) for obtaining the radius of the virtual circle in our GLP algorithm. As shown in logarithmic Fig.\,\ref{fig:NoPOI}, the user number of $x$-axis and the POI check-in number of $y$-axis are log-processed, and it can fit into an approximate straight line, which indicates that the original data are better fitted to the exponential mechanism. See the check-in number $h$ of POIs starts at about 3500 and then drops rapidly until 1. The maximum $h_{max}$ can reach more than 10,000, and overview all the POI history records, only a small amount of POI can reach 10,000 or so while the vast majority of the POI history check-in  number even less than 10, i.e., the check-in number which is less than 100 accounts for nearly $99\%$ of the total. Hence, the virtual circle radius of most POIs is very close to $R_{max}$ and it is more important to determine the upper bound of the radius than the lower bound. Due to this fact, we let $H_{max}=100$ and for 43593 POIs, almost 500 of the hottest POIs' virtual radius will achieve the minimum $R_{min}$, on the contrary, for those unsigned POIs but their creators,i.e., their history check-in number are 1 and they have a amount of more than 7000, so $18\%$ of POIs' virtual radius will achieve the maximum $R_{max}$. The empirical value of $R_{max}$ is 200(meter) so the maximum area of the virtual circle is $S_{circle}=\pi\cdot R_{max}^{2} \approx 12500m^2 $ , only the $1/8$ of maximum private area in $\langle k, s\rangle $-privacy algorithm.
+
+
+
+
+
 \subsection{Experimental results}
 \subsubsection{Weights of POI factors when $K=5$}\label{exp:weights}
 \begin{figure}[htbp]
@@ -724,7 +818,7 @@ The contribution of the location factor is less than the others.  Note that if w
 \label{fig:PrivateRecall5andPrecision5}
 \end{figure}
 
-As shown in Fig.\,\ref{fig:PrivateRecall5andPrecision5}, in the adjustment of the linear parameters of the private version, it can be seen that the private algorithm does not reduce the validity of the recommendation {\color{red}(???)} significantly, and both $\alpha$ and $\beta$ are exactly equal to $0.1$ when recall rate and accuracy rate get the optimal point. {\color{red} And even the privacy algorithm does not have a very large impact on the accuracy of recommendation algorithm in the extreme situation, we also conclude that the weight of user similarity is larger than friend relationship and the weight of friend relationship is greater than that of location.}
+As shown in Fig.\,\ref{fig:PrivateRecall5andPrecision5}, in the adjustment of the linear parameters of the private version, it can be seen that the private algorithm does not reduce the validity of the proposed algorithm {\color{red}(???)} significantly, and both $\alpha$ and $\beta$ are exactly equal to $0.1$ when recall rate and accuracy rate get the optimal point. {\color{red} And even if the privacy algorithm does not have a very large impact on the accuracy of recommendation algorithm in the extreme situation, we also conclude that the weight of friend relationship is greater than that of location.}
 
 
 %\begin{figure}
@@ -745,17 +839,11 @@ As shown in Fig.\,\ref{fig:PrivateRecall5andPrecision5}, in the adjustment of th
     \includegraphics[width=0.4\textwidth]{Precisionscores_par.pdf}
     \caption{Recall@K and Precision@K of normal and private version}\label{fig:R and P at N}
 \end{figure}
-We will use the optimal linear parameters $\alpha = 0.1$ and$\beta = 0.1$ for the following experiments.
+We will use the optimal linear parameters $\alpha = 0.1$ and $\beta = 0.1$ for the following experiments.
 The recall rate $@K$ and the precision rate $@K$ (where $K = 5, 10, 20, 50$) of the recommendation algorithm for the normal and private versions are shown in Fig.\,\ref{fig:R and P at N}.
 No matter the value $K$ is, the performance of the normal version and the private version recommendation algorithm is roughly the same, and the private version algorithm is not worse than the normal version in terms of the recall rate and precision rate.  Note that the user-POI check-in matrix of our data is very sparse. {\color{red} The precision rate is about $0.17$ under the sparseness of $7.8 \times 10^{-4}$ in \cite{I2009}. Thus, the precision rate $0.2$ in our experiment is reasonable enough with a matrix sparseness of $2.41 \times 10^{-3}$.}
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=10cm]{NumberofPOIs.pdf}
-    \caption{The check-in number of POI\,(logarithmic)}\label{fig:NoPOI}
-\end{figure}
 
 
-{\color{red} connections to the above paragragh ???}In the GLP algorithm, when each POI is blurred into a virtual circle, the radius of the virtual circle is determined by the historic check-in numbers. As shown in Fig.\,\ref{fig:NoPOI}, it is a logarithmic photo, i.e., the user number of $x$-axis and the POI check-in number of $y$-axis are log-processed, and it can fit into an approximate straight line, which indicates that the original data are better fitted to the exponential mechanism. The check-in number of POIs starts at about 1000 and then drops rapidly until 1. And we also know that a majority of POI check-in numbers are concentrated in [1, 20], that is, the check-in number which is less than 100 accounted for nearly $99\%$ of the total. Hence, the virtual circle radius of most POIs is very close to the maximum. Due to this fact, we let $H_{max}=100$, for 43186 POIs, almost 500 of the hottest POIs' virtual circle radius will achieve the minimum $R_{min}$, and $18\%$ of POIs' radius will achieve the maximum $R_{max}$.
 
 \subsubsection{Effect of varying $\epsilon$}
 \par Evaluation of the privacy recommendation algorithm {\color{red}(Algorithm ???)} needs to be carried out in two aspects: one is the degree of privacy protection, and the other one is the performance of the recommendation algorithm. The experiments above has explained that the effectiveness of the privacy algorithm is as good as the normal one.
