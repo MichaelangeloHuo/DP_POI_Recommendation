@@ -1,0 +1,207 @@
+\begin{thebibliography}{10}
+
+\bibitem{AKU2014}
+Amos Beimel, Kobbi Nissim, and Uri Stemmer.
+\newblock Private learning and sanitization: Pure vs. approximate differential
+  privacy.
+\newblock In {\em Approximation, Randomization, and Combinatorial Optimization.
+  Algorithms and Techniques}, pages 363--378. Springer, 2013.
+
+\bibitem{SB2007}
+Shlomo Berkovsky, Yaniv Eytani, Tsvi Kuflik, and Francesco Ricci.
+\newblock Enhancing privacy and preserving accuracy of a distributed
+  collaborative filtering.
+\newblock In {\em Proceedings of the 2007 ACM conference on Recommender
+  systems}, pages 9--16. ACM, 2007.
+
+\bibitem{JC2002}
+John Canny.
+\newblock Collaborative filtering with privacy.
+\newblock In {\em Security and Privacy, 2002. Proceedings. 2002 IEEE Symposium
+  on}, pages 45--57. IEEE, 2002.
+
+\bibitem{CL2006}
+Vinod Chirayath, Luc Longpr{\'e}, and Vladik Kreinovich.
+\newblock Measuring privacy loss in statistical databases.
+\newblock 2006.
+
+\bibitem{DT1977}
+Tore Dalenius.
+\newblock Towards a methodology for statistical disclosure control.
+\newblock {\em statistik Tidskrift}, 15(429-444):2--1, 1977.
+
+\bibitem{CDwork2008}
+Cynthia Dwork.
+\newblock Differential privacy: A survey of results.
+\newblock In {\em International Conference on Theory and Applications of Models
+  of Computation}, pages 1--19. Springer, 2008.
+
+\bibitem{CDwork2010}
+Cynthia Dwork.
+\newblock Differential privacy in new settings.
+\newblock In {\em Proceedings of the twenty-first annual ACM-SIAM symposium on
+  Discrete Algorithms}, pages 174--183. SIAM, 2010.
+
+\bibitem{CDwork2011}
+Cynthia Dwork.
+\newblock A firm foundation for private data analysis.
+\newblock {\em Communications of the ACM}, 54(1):86--95, 2011.
+
+\bibitem{CDwork2006}
+Cynthia Dwork, Frank McSherry, Kobbi Nissim, and Adam Smith.
+\newblock Calibrating noise to sensitivity in private data analysis.
+\newblock In {\em Theory of Cryptography Conference}, pages 265--284. Springer,
+  2006.
+
+\bibitem{CDwork2014}
+Cynthia Dwork, Aaron Roth, et~al.
+\newblock The algorithmic foundations of differential privacy.
+\newblock {\em Foundations and Trends{\textregistered} in Theoretical Computer
+  Science}, 9(3--4):211--407, 2014.
+
+\bibitem{Dwork2016}
+Cynthia Dwork and Guy~N Rothblum.
+\newblock Concentrated differential privacy.
+\newblock {\em arXiv preprint arXiv:1603.01887}, 2016.
+
+\bibitem{GRM2011}
+Robert~M Gray.
+\newblock {\em Entropy and information theory}.
+\newblock Springer Science \& Business Media, 2011.
+
+\bibitem{SH2009}
+Shuguo Han, Wee~Keong Ng, and S~Yu Philip.
+\newblock Privacy-preserving singular value decomposition.
+\newblock In {\em Data Engineering, 2009. ICDE'09. IEEE 25th International
+  Conference on}, pages 1267--1270. IEEE, 2009.
+
+\bibitem{TH2005}
+Thomas Hofmann and D~Hartmann.
+\newblock Collaborative filtering with privacy via factor analysis.
+\newblock In {\em Proceedings of the 2005 ACM symposium on applied computing},
+  pages 791--795, 2005.
+
+\bibitem{CKH2010}
+Cihan Kaleli and H{\"u}seyin Polat.
+\newblock P2p collaborative filtering with privacy.
+\newblock {\em Turkish Journal of Electrical Engineering \& Computer Sciences},
+  18(1):101--116, 2010.
+
+\bibitem{DK2003}
+David Kempe, Jon Kleinberg, and {\'E}va Tardos.
+\newblock Maximizing the spread of influence through a social network.
+\newblock In {\em Proceedings of the ninth ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 137--146. ACM, 2003.
+
+\bibitem{I2009}
+Ioannis Konstas, Vassilios Stathopoulos, and Joemon~M Jose.
+\newblock On social networks and collaborative recommendation.
+\newblock In {\em Proceedings of the 32nd international ACM SIGIR conference on
+  Research and development in information retrieval}, pages 195--202. ACM,
+  2009.
+
+\bibitem{KSJ2009}
+Ioannis Konstas, Vassilios Stathopoulos, and Joemon~M Jose.
+\newblock On social networks and collaborative recommendation.
+\newblock In {\em Proceedings of the 32nd international ACM SIGIR conference on
+  Research and development in information retrieval}, pages 195--202. ACM,
+  2009.
+
+\bibitem{LI2007}
+Ninghui Li, Tiancheng Li, and Suresh Venkatasubramanian.
+\newblock t-closeness: Privacy beyond k-anonymity and l-diversity.
+\newblock In {\em Data Engineering, 2007. ICDE 2007. IEEE 23rd International
+  Conference on}, pages 106--115. IEEE, 2007.
+
+\bibitem{HLU2008}
+Hua Lu, Christian~S Jensen, and Man~Lung Yiu.
+\newblock Pad: privacy-area aware, dummy-based location privacy in mobile
+  services.
+\newblock In {\em Proceedings of the Seventh ACM International Workshop on Data
+  Engineering for Wireless and Mobile Access}, pages 16--23. ACM, 2008.
+
+\bibitem{MJV2006}
+Ashwin Machanavajjhala, Johannes Gehrke, Daniel Kifer, and Muthuramakrishnan
+  Venkitasubramaniam.
+\newblock l-diversity: Privacy beyond k-anonymity.
+\newblock In {\em Data Engineering, 2006. ICDE'06. Proceedings of the 22nd
+  International Conference on}, pages 24--24. IEEE, 2006.
+
+\bibitem{AA2011}
+Ashwin Machanavajjhala, Aleksandra Korolova, and Atish~Das Sarma.
+\newblock Personalized social recommendations: accurate or private.
+\newblock {\em Proceedings of the VLDB Endowment}, 4(7):440--450, 2011.
+
+\bibitem{FK2007}
+Frank McSherry and Kunal Talwar.
+\newblock Mechanism design via differential privacy.
+\newblock In {\em Foundations of Computer Science, 2007. FOCS'07. 48th Annual
+  IEEE Symposium on}, pages 94--103. IEEE, 2007.
+
+\bibitem{FM2010}
+Frank~D McSherry.
+\newblock Privacy integrated queries: an extensible platform for
+  privacy-preserving data analysis.
+\newblock In {\em Proceedings of the 2009 ACM SIGMOD International Conference
+  on Management of data}, pages 19--30. ACM, 2009.
+
+\bibitem{RFM1961}
+Fazlollah~M Reza.
+\newblock {\em An introduction to information theory}.
+\newblock Courier Corporation, 1961.
+
+\bibitem{DR2012}
+Daniele Riboni and Claudio Bettini.
+\newblock Private context-aware recommendation of points of interest: An
+  initial investigation.
+\newblock In {\em Pervasive Computing and Communications Workshops (PERCOM
+  Workshops), 2012 IEEE International Conference on}, pages 584--589. IEEE,
+  2012.
+
+\bibitem{ADK2013}
+Anand~D Sarwate and Kamalika Chaudhuri.
+\newblock Signal processing and machine learning with differential privacy:
+  Algorithms and challenges for continuous data.
+\newblock {\em IEEE signal processing magazine}, 30(5):86--94, 2013.
+
+\bibitem{LS2002}
+Latanya Sweeney.
+\newblock k-anonymity: A model for protecting privacy.
+\newblock {\em International Journal of Uncertainty, Fuzziness and
+  Knowledge-Based Systems}, 10(05):557--570, 2002.
+
+\bibitem{TC2012}
+Christine Task and Chris Clifton.
+\newblock A guide to differential privacy theory in social network analysis.
+\newblock In {\em Proceedings of the 2012 International Conference on Advances
+  in Social Networks Analysis and Mining (ASONAM 2012)}, pages 411--417. IEEE
+  Computer Society, 2012.
+
+\bibitem{RC2006}
+Raymond Chi-Wing Wong, Jiuyong Li, Ada Wai-Chee Fu, and Ke~Wang.
+\newblock ($\alpha$, k)-anonymity: an enhanced k-anonymity model for privacy
+  preserving data publishing.
+\newblock In {\em Proceedings of the 12th ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 754--759. ACM, 2006.
+
+\bibitem{MY2011}
+Mao Ye, Peifeng Yin, Wang-Chien Lee, and Dik-Lun Lee.
+\newblock Exploiting geographical influence for collaborative point-of-interest
+  recommendation.
+\newblock In {\em Proceedings of the 34th international ACM SIGIR conference on
+  Research and development in Information Retrieval}, pages 325--334. ACM,
+  2011.
+
+\bibitem{EZ2011}
+Elena Zheleva and Lise Getoor.
+\newblock Privacy in social networks: A survey.
+\newblock In {\em Social network data analytics}, pages 277--306. Springer,
+  2011.
+
+\bibitem{ZLZ2017}
+Tianqing Zhu, Gang Li, Wanlei Zhou, and S~Yu Philip.
+\newblock Differentially private data publishing and analysis: a survey.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  29(8):1619--1638, 2017.
+
+\end{thebibliography}

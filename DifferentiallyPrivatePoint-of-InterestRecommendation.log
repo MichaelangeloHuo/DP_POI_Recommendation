@@ -1,0 +1,758 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.23)  16 JUL 2018 13:41
+entering extended mode
+**U:/PostG_Spring/DifferentiallyPrivatePoint-of-InterestRecommendation/Differen
+tiallyPrivatePoint-of-InterestRecommendation.tex
+
+(U:/PostG_Spring/DifferentiallyPrivatePoint-of-InterestRecommendation/Different
+iallyPrivatePoint-of-InterestRecommendation.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for loaded.
+(V:\CTEX\MiKTeX\tex\latex\elsarticle\elsarticle.cls
+Document Class: elsarticle 2009/09/17, 1.2.0: Elsevier Ltd
+\@bls=\dimen102
+(V:\CTEX\MiKTeX\tex\latex\base\article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(V:\CTEX\MiKTeX\tex\latex\base\size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen103
+)
+(V:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(V:\CTEX\MiKTeX\tex\latex\graphics\keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(V:\CTEX\MiKTeX\tex\latex\graphics\graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(V:\CTEX\MiKTeX\tex\latex\graphics\trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(V:\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(V:\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(V:\CTEX\MiKTeX\tex\generic\oberdiek\infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+(V:\CTEX\MiKTeX\tex\generic\oberdiek\ltxcmds.sty
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(V:\CTEX\MiKTeX\tex\latex\psnfss\pifont.sty
+Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
+
+(V:\CTEX\MiKTeX\tex\latex\psnfss\upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 64.
+
+(V:\CTEX\MiKTeX\tex\latex\psnfss\upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+\c@tnote=\count88
+\c@fnote=\count89
+\c@cnote=\count90
+\c@ead=\count91
+\c@author=\count92
+\@eadauthor=\toks15
+\c@affn=\count93
+\absbox=\box26
+\keybox=\box27
+\Columnwidth=\dimen106
+\space@left=\dimen107
+\els@boxa=\box28
+\els@boxb=\box29
+\leftMargin=\dimen108
+\@enLab=\toks16
+\@sep=\skip43
+\@@sep=\skip44
+
+(U:\PostG_Spring\DifferentiallyPrivatePoint-of-InterestRecommendation\Different
+iallyPrivatePoint-of-InterestRecommendation.spl)
+(V:\CTEX\MiKTeX\tex\latex\natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip45
+\bibsep=\skip46
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count94
+)
+\splwrite=\write3
+)
+(V:\CTEX\MiKTeX\tex\latex\amsfonts\amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+
+(V:\CTEX\MiKTeX\tex\latex\amsfonts\amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks17
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+(V:\CTEX\MiKTeX\tex\latex\subfigure\subfigure.sty
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
+\subfigtopskip=\skip47
+\subfigcapskip=\skip48
+\subfigcaptopadj=\dimen109
+\subfigbottomskip=\skip49
+\subfigcapmargin=\dimen110
+\subfiglabelskip=\skip50
+\c@subfigure=\count95
+\c@lofdepth=\count96
+\c@subtable=\count97
+\c@lotdepth=\count98
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(V:\CTEX\MiKTeX\tex\latex\subfigure\subfigure.cfg)
+\subfig@top=\skip51
+\subfig@bottom=\skip52
+)
+(V:\CTEX\MiKTeX\tex\latex\ams\math\amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip53
+
+For additional information on amsmath, use the `?' option.
+(V:\CTEX\MiKTeX\tex\latex\ams\math\amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(V:\CTEX\MiKTeX\tex\latex\ams\math\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks18
+\ex@=\dimen111
+))
+(V:\CTEX\MiKTeX\tex\latex\ams\math\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen112
+)
+(V:\CTEX\MiKTeX\tex\latex\ams\math\amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count99
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count100
+\leftroot@=\count101
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count102
+\DOTSCASE@=\count103
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box30
+\strutbox@=\box31
+\big@size=\dimen113
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count104
+\c@MaxMatrixCols=\count105
+\dotsspace@=\muskip10
+\c@parentequation=\count106
+\dspbrk@lvl=\count107
+\tag@help=\toks19
+\row@=\count108
+\column@=\count109
+\maxfields@=\count110
+\andhelp@=\toks20
+\eqnshift@=\dimen114
+\alignsep@=\dimen115
+\tagshift@=\dimen116
+\tagwidth@=\dimen117
+\totwidth@=\dimen118
+\lineht@=\dimen119
+\@envbody=\toks21
+\multlinegap=\skip54
+\multlinetaggap=\skip55
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(V:\CTEX\MiKTeX\tex\latex\jknappen\mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
+)
+(V:\CTEX\MiKTeX\tex\latex\hyperref\hyperref.sty
+Package: hyperref 2012/02/06 v6.82o Hypertext links for LaTeX
+
+(V:\CTEX\MiKTeX\tex\generic\oberdiek\hobsub-hyperref.sty
+Package: hobsub-hyperref 2011/04/23 v1.4 Bundle oberdiek, subset hyperref (HO)
+
+(V:\CTEX\MiKTeX\tex\generic\oberdiek\hobsub-generic.sty
+Package: hobsub-generic 2011/04/23 v1.4 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2011/04/23 v1.4 Subsetting bundle oberdiek (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/04/04 v1.12 Provides string conversions (HO)
+Package: bigintcalc 2011/01/30 v1.2 Expandable big integer calculations (HO)
+Package: bitset 2011/01/30 v1.1 Data type bit set (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provides unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2011/01/30 v1.0 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/04/23 v1.7 Hooks at very end of document (HO)
+Package: atbegshi 2011/01/30 v1.15 At begin shipout hook (HO)
+Package: refcount 2010/12/01 v3.2 Data extraction from references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options of hyperref/bookmark (HO)
+)
+(V:\CTEX\MiKTeX\tex\generic\ifxetex\ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(V:\CTEX\MiKTeX\tex\latex\oberdiek\kvoptions.sty
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+)
+\@linkdim=\dimen120
+\Hy@linkcounter=\count111
+\Hy@pagecounter=\count112
+
+(V:\CTEX\MiKTeX\tex\latex\hyperref\pd1enc.def
+File: pd1enc.def 2012/02/06 v6.82o Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count113
+
+(V:\CTEX\MiKTeX\tex\latex\00miktex\hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `linktocpage' set `true' on input line 3925.
+Package hyperref Info: Option `colorlinks' set `true' on input line 3925.
+Package hyperref Info: Hyper figures OFF on input line 4046.
+Package hyperref Info: Link nesting OFF on input line 4051.
+Package hyperref Info: Hyper index ON on input line 4054.
+Package hyperref Info: Plain pages OFF on input line 4061.
+Package hyperref Info: Backreferencing OFF on input line 4066.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4284.
+\c@Hy@tempcnt=\count114
+
+(V:\CTEX\MiKTeX\tex\latex\ltxmisc\url.sty
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4637.
+\Fld@menulength=\count115
+\Field@Width=\dimen121
+\Fld@charsize=\dimen122
+Package hyperref Info: Hyper figures OFF on input line 5757.
+Package hyperref Info: Link nesting OFF on input line 5762.
+Package hyperref Info: Hyper index ON on input line 5765.
+Package hyperref Info: backreferencing OFF on input line 5772.
+Package hyperref Info: Link coloring ON on input line 5775.
+Package hyperref Info: Link coloring with OCG OFF on input line 5782.
+Package hyperref Info: PDF/A mode OFF on input line 5787.
+LaTeX Info: Redefining \ref on input line 5827.
+LaTeX Info: Redefining \pageref on input line 5831.
+\Hy@abspage=\count116
+\c@Item=\count117
+\c@Hfootnote=\count118
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(V:\CTEX\MiKTeX\tex\latex\hyperref\hpdftex.def
+File: hpdftex.def 2012/02/06 v6.82o Hyperref driver for pdfTeX
+\Fld@listcount=\count119
+\c@bookmark@seq@number=\count120
+
+(V:\CTEX\MiKTeX\tex\latex\oberdiek\rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip56
+)
+(V:\CTEX\MiKTeX\tex\latex\caption\caption2.sty
+Package: caption2 2011/08/12 v2.2d Customising captions (AR)
+
+
+Package caption2 Warning: ****************************************************
+(caption2)                THIS PACKAGE IS OBSOLETE:
+(caption2)                This package attempts to provide an `caption2'
+(caption2)                package v2.0/2.1 author environment so that OLD
+(caption2)                documents can be successfully processed. It should
+(caption2)                NOT be used for NEW documents! New documents should
+(caption2)                use the regular `caption' package v3.x instead.
+(caption2)                ****************************************************
+
+(V:\CTEX\MiKTeX\tex\latex\caption\caption3.sty
+Package: caption3 2011/11/01 v1.4a caption3 kernel (AR)
+\captionmargin=\dimen123
+\captionmargin@=\dimen124
+\captionwidth=\dimen125
+\caption@indent=\dimen126
+\caption@parindent=\dimen127
+\caption@hangindent=\dimen128
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+Package caption2 Info: Running in caption2 v2.0 compatibility mode on input lin
+e 210.
+\captionlinewidth=\dimen129
+\realcaptionwidth=\dimen130
+Package caption2 Info: subfigure package v2.1 (or newer) detected on input line
+ 438.
+\subfigcapwidth=\dimen131
+\subcapindent=\dimen132
+)
+(V:\CTEX\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+Package: algpseudocode 
+
+(V:\CTEX\MiKTeX\tex\latex\base\ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(V:\CTEX\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count121
+\c@ALG@rem=\count122
+\c@ALG@nested=\count123
+\ALG@tlm=\skip57
+\ALG@thistlm=\skip58
+\c@ALG@Lnr=\count124
+\c@ALG@blocknr=\count125
+\c@ALG@storecount=\count126
+\c@ALG@tmpcounter=\count127
+\ALG@tmplength=\skip59
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (V:\CTEX\MiKTeX\tex\latex\floatrow\floatrow.sty
+Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
+\c@float@type=\count128
+\float@exts=\toks23
+\float@box=\box32
+\@floatcapt=\box33
+Package floatrow Info: Modified float package code loaded on input line 455.
+Package floatrow Info: Modified rotfloat package code loaded on input line 473.
+
+\FR@everyfloat=\toks24
+\flrow@foot=\insert233
+\FB@wd=\dimen133
+\FBo@wd=\dimen134
+\FBc@wd=\dimen135
+\FBo@ht=\skip60
+\FBc@ht=\skip61
+\FBf@ht=\skip62
+\FBo@max=\skip63
+\FBc@max=\skip64
+\FBf@max=\skip65
+\c@FBl@b=\count129
+\floatbox@depth=\count130
+\c@FRobj=\count131
+\c@FRsobj=\count132
+\Xhsize=\skip66
+\sXhsize=\skip67
+\Zhsize=\skip68
+\sZhsize=\skip69
+\flrow@rowbox=\box34
+\FR@Zunitlength=\dimen136
+\c@FBcnt=\count133
+\FPOScnt=\count134
+\LTleft=\skip70
+\LTright=\skip71
+\LTleft=\skip72
+\LTright=\skip73
+\flrow@types=\toks25
+)
+(V:\CTEX\MiKTeX\tex\latex\multirow\multirow.sty
+\bigstrutjot=\dimen137
+)
+\c@theorem=\count135
+
+(U:\PostG_Spring\DifferentiallyPrivatePoint-of-InterestRecommendation\Different
+iallyPrivatePoint-of-InterestRecommendation.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+
+(V:\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count136
+\scratchdimen=\dimen138
+\scratchbox=\box35
+\nofMPsegments=\count137
+\nofMParguments=\count138
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count139
+\MPscratchDim=\dimen139
+\MPnumerator=\count140
+\makeMPintoPDFobject=\count141
+\everyMPtoPDFconversion=\toks27
+)
+\AtBeginShipoutBox=\box36
+ (V:\CTEX\MiKTeX\tex\latex\graphics\color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(V:\CTEX\MiKTeX\tex\latex\00miktex\color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+Package hyperref Info: Link coloring ON on input line 157.
+
+(V:\CTEX\MiKTeX\tex\latex\hyperref\nameref.sty
+Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
+
+(V:\CTEX\MiKTeX\tex\generic\oberdiek\gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count142
+)
+LaTeX Info: Redefining \ref on input line 157.
+LaTeX Info: Redefining \pageref on input line 157.
+LaTeX Info: Redefining \nameref on input line 157.
+
+(U:\PostG_Spring\DifferentiallyPrivatePoint-of-InterestRecommendation\Different
+iallyPrivatePoint-of-InterestRecommendation.out)
+(U:\PostG_Spring\DifferentiallyPrivatePoint-of-InterestRecommendation\Different
+iallyPrivatePoint-of-InterestRecommendation.out)
+\@outlinefile=\write4
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for U+msa on input line 236.
+
+(V:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 236.
+
+(V:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 236.
+
+(V:\CTEX\MiKTeX\tex\latex\jknappen\ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+) [1
+
+
+{V:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}] [2]
+<generalization.pdf, id=193, 513.41812pt x 315.79982pt>
+File: generalization.pdf Graphic file (type pdf)
+
+<use generalization.pdf>
+Package pdftex.def Info: generalization.pdf used on input line 258.
+(pdftex.def)             Requested size: 227.62204pt x 140.00764pt.
+Missing character: There is no ¡ in font cmr12!
+Missing character: There is no ¯ in font cmr12!
+ [3 <U:/PostG_Spring/DifferentiallyPrivatePoint-of-InterestRecommendation/gener
+alization.pdf>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 276.
+
+
+(V:\CTEX\MiKTeX\tex\latex\base\omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 276.
+ [4] [5]
+<Distance_distribute.pdf, id=267, 462.52798pt x 346.89601pt>
+File: Distance_distribute.pdf Graphic file (type pdf)
+
+<use Distance_distribute.pdf>
+Package pdftex.def Info: Distance_distribute.pdf used on input line 348.
+(pdftex.def)             Requested size: 303.49794pt x 227.62204pt.
+ [6] [7 <U:/PostG_Spring/DifferentiallyPrivatePoint-of-InterestRecommendation/D
+istance_distribute.pdf>]
+Missing character: There is no £ in font cmti12!
+Missing character: There is no ¬ in font cmti12!
+ [8]
+<Attack_Model.pdf, id=333, 537.56706pt x 449.87675pt>
+File: Attack_Model.pdf Graphic file (type pdf)
+ <use Attack_Model.pdf>
+Package pdftex.def Info: Attack_Model.pdf used on input line 463.
+(pdftex.def)             Requested size: 339.98146pt x 284.52756pt.
+
+[9] [10 <U:/PostG_Spring/DifferentiallyPrivatePoint-of-InterestRecommendation/A
+ttack_Model.pdf>]
+Missing character: There is no ¡ in font cmr12!
+Missing character: There is no ¯ in font cmr12!
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 488.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\delimiter' on input line 488.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\delimiter' on input line 488.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 488.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 497--501
+
+ []
+
+[11]
+Overfull \hbox (11.10213pt too wide) in paragraph at lines 530--534
+\OT1/cmr/m/n/12 max-i-mum num-ber of his-tor-i-cal check-in num-ber-s in al-l P
+OIs($\OML/cmm/m/it/12 h[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 max\OMS/cmsy/m/n/1
+2 f\OML/cmm/m/it/12 H\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 POI[]\OT1/cmr/m/n/12 )\O
+ML/cmm/m/it/12 ; H\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 POI[]\OT1/cmr/m/n/12 )\OML/
+cmm/m/it/12 ;$
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 539.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\delimiter' on input line 539.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\delimiter' on input line 539.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 539.
+
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 641--644
+
+ []
+
+[14]
+Missing character: There is no ¡ in font cmti12!
+Missing character: There is no ¯ in font cmti12!
+Missing character: There is no ¡ in font cmti12!
+Missing character: There is no ¯ in font cmti12!
+ [15]
+Overfull \hbox (1.49338pt too wide) in paragraph at lines 726--727
+[]\OT1/cmr/m/it/12 Let $\OML/cmm/m/it/12 X; Y; Z$ \OT1/cmr/m/it/12 be three dis
+-crete ran-dom vari-
+ []
+
+
+Overfull \hbox (9.84859pt too wide) in paragraph at lines 728--730
+\OT1/cmr/m/it/12 Proof. \OT1/cmr/m/n/12 The ran-dom vari-ables $\OML/cmm/m/it/1
+2 X; Y; Z$ \OT1/cmr/m/n/12 are in-de-pen-den-t of each oth-er so there ex-ist-s
+ $\OML/cmm/m/it/12 H\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X; Y; Z\OT1/cmr/m/n/12 ) 
+=$
+ []
+
+[16]
+
+pdfTeX warning: pdflatex.exe (file U:/PostG_Spring/DifferentiallyPrivatePoint-o
+f-InterestRecommendation/Check-inData.pdf): PDF inclusion: found PDF version <1
+.7>, but at most version <1.5> allowed
+<Check-inData.pdf, id=502, 688.18605pt x 186.22475pt>
+File: Check-inData.pdf Graphic file (type pdf)
+ <use Check-inData.pdf>
+Package pdftex.def Info: Check-inData.pdf used on input line 782.
+(pdftex.def)             Requested size: 341.44597pt x 85.36037pt.
+
+
+pdfTeX warning: pdflatex.exe (file U:/PostG_Spring/DifferentiallyPrivatePoint-o
+f-InterestRecommendation/FriendTies.pdf): PDF inclusion: found PDF version <1.7
+>, but at most version <1.5> allowed
+<FriendTies.pdf, id=503, 146.11488pt x 186.19461pt>
+File: FriendTies.pdf Graphic file (type pdf)
+ <use FriendTies.pdf>
+Package pdftex.def Info: FriendTies.pdf used on input line 785.
+(pdftex.def)             Requested size: 71.13316pt x 85.36076pt.
+
+[17]
+
+pdfTeX warning: pdflatex.exe (file U:/PostG_Spring/DifferentiallyPrivatePoint-o
+f-InterestRecommendation/NumberofPOIs.pdf): PDF inclusion: found PDF version <1
+.6>, but at most version <1.5> allowed
+<NumberofPOIs.pdf, id=515, 575.63052pt x 471.68222pt>
+File: NumberofPOIs.pdf Graphic file (type pdf)
+ <use NumberofPOIs.pdf>
+Package pdftex.def Info: NumberofPOIs.pdf used on input line 836.
+(pdftex.def)             Requested size: 284.52756pt x 233.14874pt.
+
+[18 <U:/PostG_Spring/DifferentiallyPrivatePoint-of-InterestRecommendation/Check
+-inData.pdf> <U:/PostG_Spring/DifferentiallyPrivatePoint-of-InterestRecommendat
+ion/FriendTies.pdf>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 847.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 847.
+
+<NormalRecall5.pdf, id=539, 462.48584pt x 346.88194pt>
+File: NormalRecall5.pdf Graphic file (type pdf)
+ <use NormalRecall5.pdf>
+Package pdftex.def Info: NormalRecall5.pdf used on input line 852.
+(pdftex.def)             Requested size: 227.62212pt x 170.72523pt.
+
+<NormalPrecision5.pdf, id=540, 462.48584pt x 346.88194pt>
+File: NormalPrecision5.pdf Graphic file (type pdf)
+
+<use NormalPrecision5.pdf>
+Package pdftex.def Info: NormalPrecision5.pdf used on input line 855.
+(pdftex.def)             Requested size: 227.62212pt x 170.72523pt.
+ [19 <U:/PostG_Spring/DifferentiallyPrivatePoint-of-InterestRecommendation/Numb
+erofPOIs.pdf>]
+<PrivateRecall5.pdf, id=560, 462.48584pt x 346.88194pt>
+File: PrivateRecall5.pdf Graphic file (type pdf)
+
+<use PrivateRecall5.pdf>
+Package pdftex.def Info: PrivateRecall5.pdf used on input line 870.
+(pdftex.def)             Requested size: 227.62212pt x 170.72523pt.
+
+<PrivatePrecision5.pdf, id=561, 462.48584pt x 346.88194pt>
+File: PrivatePrecision5.pdf Graphic file (type pdf)
+
+<use PrivatePrecision5.pdf>
+Package pdftex.def Info: PrivatePrecision5.pdf used on input line 873.
+(pdftex.def)             Requested size: 227.62212pt x 170.72523pt.
+ [20 <U:/PostG_Spring/DifferentiallyPrivatePoint-of-InterestRecommendation/Norm
+alRecall5.pdf> <U:/PostG_Spring/DifferentiallyPrivatePoint-of-InterestRecommend
+ation/NormalPrecision5.pdf> <U:/PostG_Spring/DifferentiallyPrivatePoint-of-Inte
+restRecommendation/PrivateRecall5.pdf> <U:/PostG_Spring/DifferentiallyPrivatePo
+int-of-InterestRecommendation/PrivatePrecision5.pdf>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 892.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 892.
+
+<Recallscores_par.pdf, id=644, 462.52798pt x 346.89601pt>
+File: Recallscores_par.pdf Graphic file (type pdf)
+
+<use Recallscores_par.pdf>
+Package pdftex.def Info: Recallscores_par.pdf used on input line 895.
+(pdftex.def)             Requested size: 187.89912pt x 140.92615pt.
+
+<Precisionscores_par.pdf, id=645, 462.52798pt x 346.89601pt>
+File: Precisionscores_par.pdf Graphic file (type pdf)
+
+<use Precisionscores_par.pdf>
+Package pdftex.def Info: Precisionscores_par.pdf used on input line 896.
+(pdftex.def)             Requested size: 187.89912pt x 140.92615pt.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 905.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\epsilon' on input line 905.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 905.
+
+<epsilon.pdf, id=648, 622.9674pt x 450.9648pt>
+File: epsilon.pdf Graphic file (type pdf)
+ <use epsilon.pdf>
+Package pdftex.def Info: epsilon.pdf used on input line 909.
+(pdftex.def)             Requested size: 314.43921pt x 227.62204pt.
+ [21 <U:/PostG_Spring/DifferentiallyPrivatePoint-of-InterestRecommendation/Reca
+llscores_par.pdf> <U:/PostG_Spring/DifferentiallyPrivatePoint-of-InterestRecomm
+endation/Precisionscores_par.pdf>] [22 <U:/PostG_Spring/DifferentiallyPrivatePo
+int-of-InterestRecommendation/epsilon.pdf>]
+(U:\PostG_Spring\DifferentiallyPrivatePoint-of-InterestRecommendation\Different
+iallyPrivatePoint-of-InterestRecommendation.bbl
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
+ [23] [24])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1049.
+ [25]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1049.
+
+(U:\PostG_Spring\DifferentiallyPrivatePoint-of-InterestRecommendation\Different
+iallyPrivatePoint-of-InterestRecommendation.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1049.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1049.
+
+Package rerunfilecheck Info: File `DifferentiallyPrivatePoint-of-InterestRecomm
+endation.out' has not changed.
+(rerunfilecheck)             Checksum: 18015B408D5FE01CBE8829BC07992EF1;2768.
+ ) 
+Here is how much of TeX's memory you used:
+ 8678 strings out of 495354
+ 124078 string characters out of 3183859
+ 217279 words of memory out of 3000000
+ 11570 multiletter control sequences out of 15000+200000
+ 14139 words of font info for 56 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 36i,9n,38p,1728b,526s stack positions out of 5000i,500n,10000p,200000b,50000s
+<V:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><V:/CTEX/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmbxti10.pfb><V:/CTEX/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmex10.pfb><V:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
+V:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><V:/CTEX/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb><V:/CTEX/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmr10.pfb><V:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><V:/CTEX/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><V:/CTEX/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr6.pfb><V:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb
+><V:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><V:/CTEX/MiKTeX/font
+s/type1/public/amsfonts/cm/cmsy6.pfb><V:/CTEX/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmsy7.pfb><V:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><V:/CTE
+X/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><V:/CTEX/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmti12.pfb><V:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+ti7.pfb><V:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><V:/CTEX/MiKT
+eX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on DifferentiallyPrivatePoint-of-InterestRecommendation.pdf (25 
+pages, 21283497 bytes).
+PDF statistics:
+ 890 PDF objects out of 1000 (max. 8388607)
+ 146 named destinations out of 1000 (max. 500000)
+ 346 words of extra memory for PDF output out of 10000 (max. 10000000)
+

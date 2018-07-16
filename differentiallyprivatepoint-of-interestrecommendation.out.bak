@@ -1,0 +1,35 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Overview}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Technical Motivation}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Contributions}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{Outline}{section.1}% 5
+\BOOKMARK [1][-]{section.2}{Related Work}{}% 6
+\BOOKMARK [1][-]{section.3}{Background}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{POI recommendation system}{section.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.1.1}{User similarity collaborative filtering}{subsection.3.1}% 9
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Friend relationship collaborative filtering}{subsection.3.1}% 10
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Geographical location factor}{subsection.3.1}% 11
+\BOOKMARK [3][-]{subsubsection.3.1.4}{Overall POI factors}{subsection.3.1}% 12
+\BOOKMARK [2][-]{subsection.3.2}{Differential privacy}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.3}{Attacking privacy model}{section.3}% 14
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Geographical attacking model}{subsection.3.3}% 15
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Friend relationship attacking model}{subsection.3.3}% 16
+\BOOKMARK [1][-]{section.4}{Privacy-preserving approaches}{}% 17
+\BOOKMARK [2][-]{subsection.4.1}{GLP: Geographical location privacy-preserving algorithm}{section.4}% 18
+\BOOKMARK [3][-]{subsubsection.4.1.1}{"426830A r, h"526930B -Privacy}{subsection.4.1}% 19
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Theoretical analysis of "426830A r, h"526930B -privacy}{subsection.4.1}% 20
+\BOOKMARK [2][-]{subsection.4.2}{FRP: Friend relationship privacy-preserving algorithm}{section.4}% 21
+\BOOKMARK [3][-]{subsubsection.4.2.1}{FRP algorithm}{subsection.4.2}% 22
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Theoretical analysis of FRP}{subsection.4.2}% 23
+\BOOKMARK [2][-]{subsection.4.3}{Private POI recommendation method}{section.4}% 24
+\BOOKMARK [1][-]{section.5}{Empirical Study}{}% 25
+\BOOKMARK [2][-]{subsection.5.1}{Experiment setup}{section.5}% 26
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Dataset description}{subsection.5.1}% 27
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Evaluation metrics}{subsection.5.1}% 28
+\BOOKMARK [3][-]{subsubsection.5.1.3}{Determining the weights of three POI factors}{subsection.5.1}% 29
+\BOOKMARK [3][-]{subsubsection.5.1.4}{Determining the radius in the GLP algorithm}{subsection.5.1}% 30
+\BOOKMARK [2][-]{subsection.5.2}{Experimental results}{section.5}% 31
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Weights of POI factors when K=5}{subsection.5.2}% 32
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Effect of varying K}{subsection.5.2}% 33
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Effect of varying }{subsection.5.2}% 34
+\BOOKMARK [1][-]{section.6}{Conclusions and Future Work}{}% 35
